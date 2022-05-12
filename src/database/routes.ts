@@ -7,10 +7,10 @@ router.post("/users", UserController.create); // Nunca deixar com parenteses "cr
 
 router.get("/users", UserController.findAll);
 
-router.get("/users/:userID", UserController.findOne);
+router.get("/users/:userId", UserController.findOne);
 
-router.put("/users/:userID", UserController.update);
+router.put("/users/:userId", UserController.update);
 
-router.delete("/users/:userID", UserController.destroy);
+router.delete("/users/:userId", UserController.destroy);
 
 export { router };

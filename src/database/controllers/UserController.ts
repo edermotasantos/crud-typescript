@@ -9,7 +9,16 @@ class UserController {
       : res.status(204).json();
   }
 
-  async findOne(req: Request, res: Response) {}
+  async findOne(req: Request, res: Response) {
+    const { userId } = req.params;
+    const user = await UserModel.findOne({
+      where: {
+        id: userId,
+      },
+    });
+    return user ? res.status(200).json(user) : res.status(204).json();
+  }
+
   async create(req: Request, res: Response) {
     const { email, nome, idade } = req.body;
     const user = await UserModel.create({
