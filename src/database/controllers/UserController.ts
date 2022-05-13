@@ -39,7 +39,11 @@ class UserController {
     return res.status(204).json();
   }
 
-  async destroy(req: Request, res: Response) {}
+  async destroy(req: Request, res: Response) {
+    const { userId } = req.params;
+    await UserModel.destroy({ where: { id: userId } });
+    return res.status(204).json();
+  }
 }
 
 export default new UserController();
