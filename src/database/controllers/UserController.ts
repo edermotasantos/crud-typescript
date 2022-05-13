@@ -29,7 +29,16 @@ class UserController {
     return res.status(201).json(user);
   }
 
-  async update(req: Request, res: Response) {}
+  async update(req: Request, res: Response) {
+    const { userId } = req.params;
+    await UserModel.update(req.body, {
+      where: {
+        id: userId,
+      },
+    });
+    return res.status(204).json();
+  }
+
   async destroy(req: Request, res: Response) {}
 }
 
